@@ -2,3 +2,4 @@ Query n° 1 - Seleziona tutti gli utenti e calcolane l'età
 
 SELECT `id`, `username`, TIMESTAMPDIFF(YEAR, `birthdate`, CURRENT_DATE()) AS age FROM `users`;
 
+Query n° 2 - Seleziona tutti i post senza Like
