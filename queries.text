@@ -7,3 +7,5 @@ Query n° 2 - Seleziona tutti i post senza Like
 SELECT `posts`.`user_id`, `posts`.`title` FROM `posts` LEFT JOIN `likes` ON `posts`.`id`=`likes`.`post_id` WHERE `likes`.`post_id` IS NULL;
 
 Query n° 3 - Conta il numero di like per ogni post
+
+SELECT `id`,`title`, COUNT(`likes`.`post_id`) AS like_count FROM `posts` LEFT JOIN `likes` ON `posts`.`id` = `likes`.`post_id` GROUP BY `posts`.`id`, `posts`.`title`;
