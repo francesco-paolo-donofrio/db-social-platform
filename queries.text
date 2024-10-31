@@ -11,3 +11,5 @@ Query n° 3 - Conta il numero di like per ogni post
 SELECT `id`,`title`, COUNT(`likes`.`post_id`) AS like_count FROM `posts` LEFT JOIN `likes` ON `posts`.`id` = `likes`.`post_id` GROUP BY `posts`.`id`, `posts`.`title`;
 
 Query n° 4 - Ordina gli utenti per il numero di media caricati
+
+SELECT `users`.`id`, `users`.`username`, COUNT(`media`.`id`) AS media_count FROM `users` LEFT JOIN `media` ON `users`.`id` = `media`.`user_id` GROUP BY `users`.`id`, `users`.`username` ORDER BY media_count DESC;
