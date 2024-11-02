@@ -23,3 +23,5 @@ Query n° 6 - Seleziona tutti i post degli utenti tra i 20 e i 30 anni
 SELECT `posts`.`id`, `posts`.`title`, `users`.`username`, TIMESTAMPDIFF(YEAR, `users`.`birthdate`, CURRENT_DATE()) AS age FROM `posts` JOIN `users` ON `posts`.`user_id` = `users`.`id` WHERE TIMESTAMPDIFF(YEAR, `users`.`birthdate`, CURRENT_DATE()) BETWEEN 20 AND 30;
 
 Query n° 7 - Seleziona il numero di post e di media per ogni utente
+
+SELECT `users`.`id`, `users`.`username`, COUNT(`posts`.`id`) AS post_count, COUNT(`medias`.`id`) AS media_count FROM `users` LEFT JOIN `posts` ON `users`.`id` = `posts`.`user_id` LEFT JOIN `medias` ON `users`.`id` = `medias`.`user_id` GROUP BY `users`.`id`, `users`.`username`;
